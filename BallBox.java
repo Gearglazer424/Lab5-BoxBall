@@ -63,24 +63,14 @@ public class BallBox
      **/
     public void move()
     {
-        // remove from canvas at the current position
-        erase();
-            
-        // compute new position
-        ySpeed += GRAVITY;
-        yPosition += ySpeed;
-        xPosition +=2;
-
-        // check if it has hit the ground
-        if(yPosition >= (groundPosition - diameter) && ySpeed > 0) {
-            yPosition = (int)(groundPosition - diameter);
-            ySpeed = -ySpeed + ballDegradation; 
+        
+        
         }
 
-        // draw again at new position
+        
         draw();
     }    
-
+    
     /**
      * return the horizontal position of this ball
      */

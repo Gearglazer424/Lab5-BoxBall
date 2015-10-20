@@ -23,7 +23,7 @@ public class BallDemo
     /**
      * Simulate two bouncing balls
      */
-    public void bounce()
+    public void boxBounce()
     {
         int ground = 400;   // position of the ground line
 
