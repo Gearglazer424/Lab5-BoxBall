@@ -17,9 +17,12 @@ public class BallBox
     private int xPosition;
     private int yPosition;
     private final int groundPosition;      // y position of ground
+    private final int ceilingPosition;
+    private final int leftWallPosition;
+    private final int rightWallPosistion;
     private Canvas canvas;
     private int ySpeed = 1;                // initial downward speed
-
+    
     /**
      * Constructor for objects of class BouncingBall
      *
