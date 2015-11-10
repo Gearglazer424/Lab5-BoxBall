@@ -25,29 +25,47 @@ public class BallDemo
      */
     public void boxBounce()
     {
-        int ground = 400;   // position of the ground line
+        final int OFFSET = 75;
+        int ground = 400;   // position of the lines
+        int ceiling = 0;
+        int leftwall = 0;
+        int rightwall = 400;
+        
 
         myCanvas.setVisible(true);
 
         // draw the ground
-        myCanvas.drawLine(50, ground, 550, ground);
+        myCanvas.drawLine(OFFSET + leftwall, OFFSET + ground, OFFSET + rightwall, OFFSET + ground);
+        //draw the ceiling
+        myCanvas.drawLine(OFFSET + leftwall, OFFSET + ceiling, OFFSET + rightwall, OFFSET + ceiling);
+        //draw the left wall
+        myCanvas.drawLine(OFFSET + leftwall, OFFSET + ceiling, OFFSET + leftwall, OFFSET + ground);
+        //draw the right wall
+        myCanvas.drawLine(OFFSET + rightwall, OFFSET + ceiling, OFFSET + rightwall, OFFSET + ground);
 
-        // crate and show the balls
-        BouncingBall ball = new BouncingBall(50, 50, 16, Color.BLUE, ground, myCanvas);
-        ball.draw();
-        BouncingBall ball2 = new BouncingBall(70, 80, 20, Color.RED, ground, myCanvas);
+        // create and show the balls
+        BallBox ball1 = new BallBox(myCanvas,OFFSET + ground,OFFSET + ceiling,OFFSET + rightwall,
+            OFFSET + leftwall);
+        ball1.draw();
+        BallBox ball2 = new BallBox(myCanvas,OFFSET + ground,OFFSET + ceiling,OFFSET + rightwall,OFFSET + leftwall);
         ball2.draw();
+        BallBox ball3 = new BallBox(myCanvas,OFFSET + ground,OFFSET + ceiling,OFFSET + rightwall,OFFSET + leftwall);
+        ball3.draw();
+        BallBox ball4 = new BallBox(myCanvas,OFFSET + ground,OFFSET + ceiling,OFFSET + rightwall,OFFSET + leftwall);
+        ball4.draw();
+        BallBox ball5 = new BallBox(myCanvas,OFFSET + ground,OFFSET + ceiling,OFFSET + rightwall,OFFSET + leftwall);
+        ball5.draw();
 
         // make them bounce
         boolean finished =  false;
         while(!finished) {
             myCanvas.wait(50);           // small delay
-            ball.move();
+            ball1.move();
             ball2.move();
-            // stop once ball has travelled a certain distance on x axis
-            if(ball.getXPosition() >= 550 || ball2.getXPosition() >= 550) {
-                finished = true;
-            }
+            ball3.move();
+            ball4.move();
+            ball5.move();
         }
     }
 }
+

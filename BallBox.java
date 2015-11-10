@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.geom.*;
+import java.util.Random;
 /**
  * Write a description of class BallBox here.
  * 
@@ -8,85 +9,22 @@ import java.awt.geom.*;
  */
 public class BallBox
 {
-    private static final int GRAVITY = 3;  // effect of gravity
-
-    private int ballDegradation = 2;
-    private Ellipse2D.Double circle;
-    private Color color;
-    private int diameter;
-    private int xPosition;
-    private int yPosition;
-    private final int groundPosition;      // y position of ground
-    private final int ceilingPosition;
-    private final int leftWallPosition;
-    private final int rightWallPosistion;
-    private Canvas canvas;
-    private int ySpeed = 1;                // initial downward speed
+    public BallBox(Canvas drawingCanvas,int groundB,int ceilingB,int rightwallB,int leftwallB) {
+        Canvas canvas = drawingCanvas;
+        int ground = groundB;
+        int ceiling = ceilingB;
+        int rightwall = rightwallB;
+        int leftwall = leftwallB;
+        int xPos = 0;
+        int yPos = 0;
+    }
     
-    /**
-     * Constructor for objects of class BouncingBall
-     *
-     * @param xPos  the horizontal coordinate of the ball
-     * @param yPos  the vertical coordinate of the ball
-     * @param ballDiameter  the diameter (in pixels) of the ball
-     * @param ballColor  the color of the ball
-     * @param groundPos  the position of the ground (where the wall will bounce)
-     * @param drawingCanvas  the canvas to draw this ball on
-     */
-    public BallBox(int xPos, int yPos, int ballDiameter, Color ballColor,
-                        int groundPos, Canvas drawingCanvas)
+    public void move() 
     {
-        xPosition = xPos;
-        yPosition = yPos;
-        color = ballColor;
-        diameter = ballDiameter;
-        groundPosition = groundPos;
-        canvas = drawingCanvas;
+      canvas.fillCircle(int xPos, int yPos, int diameter);  
     }
-
-    /**
-     * Draw this ball at its current position onto the canvas.
-     **/
-    public void draw()
-    {
-        canvas.setForegroundColor(color);
-        canvas.fillCircle(xPosition, yPosition, diameter);
-    }
-
-    /**
-     * Erase this ball at its current position.
-     **/
-    public void erase()
-    {
-        canvas.eraseCircle(xPosition, yPosition, diameter);
-    }    
-
-    /**
-     * Move this ball according to its position and speed and redraw.
-     **/
-    public void move()
-    {
-        
-        
-        }
-
-        
-        draw();
-    }    
     
-    /**
-     * return the horizontal position of this ball
-     */
-    public int getXPosition()
-    {
-        return xPosition;
-    }
-
-    /**
-     * return the vertical position of this ball
-     */
-    public int getYPosition()
-    {
-        return yPosition;
+    public void draw() {
+        
     }
 }
